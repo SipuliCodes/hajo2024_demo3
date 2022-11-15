@@ -27,6 +27,8 @@ Vinkkejä tehtävän tekoon:
 - Tavujen kirjoitus tavuvirtaan: <https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/OutputStream.html> (`write(byte[] b)`)
 - Tavujen luku tavuvirrasta: <https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html>. Voit tässä tehtävässä lukea "kaikki" tavut (`readAllBytes`-metodi).
 
+HUOM! `readAllBytes` odottaa ns. EOF (End of File) -signaalia luettavalta soketilta. Mikäli tietovirtoja ei suljeta oikein, saattaa ohjelma päättyä virheeseen ennen kuin EOF:iin on sokettia lukiessa törmätty. TL;DR: Käytä joko try-with-resources-rakennetta tiedostovirroissa tai kutsu input- ja output-streamien `close()`-metodia manuaalisesti luvun ja kirjoituksen jälkeen.
+
 ### Tehtävä 3 - Asiakaspalvelija
 Edellisessä tehtävässä yhdenkin asiakkaan otettua yhteys palvelimeen, palvelin ei enää suostu ottamaan muita asiakkaita vastaan. Tämä johtuu siitä, että `accept`-metodia ei kutsuta kuin kerran ohjelman suorituksen aikana. Kun asiakas sulkee yhteyden, sulkeutuu myös palvelin.
 
