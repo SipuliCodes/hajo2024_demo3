@@ -92,7 +92,7 @@ public class Hub extends Thread {
     }
 
     /**
-     * Status monitoring, should not require NO changes
+     * Status monitoring, should NOT require any changes
      */
     public void run() {
         while (true) {
